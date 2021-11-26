@@ -142,4 +142,17 @@ public class BaseDeDatos
         // si no encuentra retorna falso
         return false;
     }
+    
+    
+    // RELLENA EL COMBOBOX DE MODIFICAR EN jfadmin
+    // OJO: Retorna un array de string
+    public ArrayList<String> rellenarID()
+    {
+        ArrayList<String> id = new ArrayList<String>();
+        for (int i = 0; i < accesorio.size(); i++) 
+        {
+            id.add(accesorio.get(i).getId());
+        }
+        return id;
+    }
 }
