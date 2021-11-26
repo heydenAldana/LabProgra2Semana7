@@ -1,22 +1,20 @@
 /*
- * AQUI VAN DE LA MANO LOS ADMINS Y LOS COMPRADORES
- * HAY UN ATRIBUTO LLAMADO "TIPO" QUE PUEDE SER
- * "administrador" o "comprador" (asi como esta escrito alli)
+ * AQUI VAN DE LA MANO LOS ADMINS.
+ * lo que es de comprador va heredado de aqui, porque tiene atributos extra
  */
 package lab7p2_heydenaldana_22111098;
 
-public class Usuario 
+public class userAdmin 
 {
-    private String usuario, tipo, password;
+    private String usuario, password;
     private int edad;
 
     // Recordar: tipo solo puede ser de dos:
     // administrador
     // comprador
     
-    public Usuario(String usuario, String tipo, String password, int edad) {
+    public userAdmin(String usuario, String password, int edad) {
         this.usuario = usuario;
-        this.tipo = tipo;
         this.password = password;
         this.edad = edad;
     }
@@ -29,14 +27,6 @@ public class Usuario
 
     public void setUsuario(String usuario) {
         this.usuario = usuario;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
     }
 
     public String getPassword() {
