@@ -16,10 +16,9 @@ public class BaseDeDatos
 {
     // guardar la lista de lo que sea que vaya aqui
     private ArrayList<userAdmin> user = new ArrayList<userAdmin>();
-    private ArrayList<Comprador> comp = new ArrayList<userAdmin>();
-
+    private ArrayList<Comprador> comp = new ArrayList<Comprador>();
     private ArrayList<Accesorio> accesorio = new ArrayList<Accesorio>();
-
+    private ArrayList factura = new ArrayList();
     // ------------- AQUI VA ADMIN ------------------- //
     
     public void agregarUsuario(String tipo, String usuario, String password, int edad)
@@ -36,4 +35,15 @@ public class BaseDeDatos
         // agrega al user pasada la prueba
         
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
