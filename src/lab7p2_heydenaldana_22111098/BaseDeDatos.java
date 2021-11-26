@@ -51,6 +51,26 @@ public class BaseDeDatos
     }
     
     
+    // Indica que tipo de usuario es (administrador o  comprador)
+    public String getTipoUsuario(String nombre)
+    {
+        // Busca coincidencia en ambos cosos
+        for (int i = 0; i < user.size(); i++) 
+        {
+            if(user.get(i).getUsuario().equals(nombre))
+                return "administrador";
+        }
+        for (int i = 0; i < comp.size(); i++) 
+        {
+            if(comp.get(i).getUsuario().equals(nombre))
+                return "comprador";
+        }
+        
+        // No se encontro
+        return "";
+    }
+    
+    
     // AGREGAR UN ACCESORIO
     public void agregarAccesorio(String nombre, double precio, int cantidad)
     {
@@ -101,5 +121,25 @@ public class BaseDeDatos
         
         // no se pudo agregar
         JOptionPane.showMessageDialog(null, "No se pudo eliminar");
+    }
+    
+    
+    // FUNCION PARA LOGIN (LOGEARSE)
+    public boolean entrarLogin(String username, String password)
+    {
+        // Busca coincidencia en ambos cosos
+        for (int i = 0; i < user.size(); i++) 
+        {
+            if(user.get(i).getUsuario().equals(username) && user.get(i).getPassword().equals(password))
+                return true;
+        }
+        for (int i = 0; i < comp.size(); i++) 
+        {
+            if(comp.get(i).getUsuario().equals(username) && comp.get(i).getPassword().equals(password))
+                return true;
+        }
+        
+        // si no encuentra retorna falso
+        return false;
     }
 }
