@@ -18,7 +18,7 @@ public class BaseDeDatos
     private ArrayList<userAdmin> user = new ArrayList<userAdmin>();
     private ArrayList<Comprador> comp = new ArrayList<Comprador>();
     private ArrayList<Accesorio> accesorio = new ArrayList<Accesorio>();
-
+    private ArrayList factura = new ArrayList();
     // ------------- AQUI VA ADMIN ------------------- //
     
     // AGREGAR UN NUEVO USUARIO
@@ -144,6 +144,7 @@ public class BaseDeDatos
     }
     
     
+<<<<<<< HEAD
     // RELLENA EL COMBOBOX DE MODIFICAR EN jfadmin
     // OJO: Retorna un array de string
     public ArrayList<String> rellenarID()
@@ -155,4 +156,15 @@ public class BaseDeDatos
         }
         return id;
     }
+=======
+    
+    
+    
+    
+    
+    
+    
+    
+    
+>>>>>>> 614c7921c219cd7532414cf266cc6f63a724f72c
 }

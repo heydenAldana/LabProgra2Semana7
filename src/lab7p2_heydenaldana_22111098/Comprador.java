@@ -56,4 +56,9 @@ public class Comprador extends userAdmin
     
     // ya que vos manejas compradores te 
     // dejo aqui por si te toca agregar algo aqui
+    
+    
+    
+    
+    
 }
