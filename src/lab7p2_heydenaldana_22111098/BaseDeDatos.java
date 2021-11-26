@@ -21,11 +21,22 @@ public class BaseDeDatos
     private ArrayList factura = new ArrayList();
     // ------------- AQUI VA ADMIN ------------------- //
     
+    // AGREGAR UN NUEVO USUARIO
     public void agregarUsuario(String tipo, String usuario, String password, int edad)
     {
+        // Evalua si existe entre ADMINISTRAORES
         for (int i = 0; i < user.size(); i++) 
         {
-            if(user.get(i).equals(usuario))
+            if(user.get(i).getUsuario().equals(usuario))
+            {
+                JOptionPane.showMessageDialog(null, "Este usuario ya existe mi estimado");
+                return;
+            }
+        }
+        // EVALUA SI EXISTE ENTRE compradores
+        for (int i = 0; i < comp.size(); i++) 
+        {
+            if(comp.get(i).getUsuario().equals(usuario))
             {
                 JOptionPane.showMessageDialog(null, "Este usuario ya existe mi estimado");
                 return;
@@ -33,7 +44,103 @@ public class BaseDeDatos
         }
         
         // agrega al user pasada la prueba
+        if(tipo.equalsIgnoreCase("administrador"))
+            user.add(new userAdmin(usuario, password, edad));
+        else if(tipo.equalsIgnoreCase("comprador"))
+            comp.add(new Comprador(usuario, password, edad));
+    }
+    
+    
+    // Indica que tipo de usuario es (administrador o  comprador)
+    public String getTipoUsuario(String nombre)
+    {
+        // Busca coincidencia en ambos cosos
+        for (int i = 0; i < user.size(); i++) 
+        {
+            if(user.get(i).getUsuario().equals(nombre))
+                return "administrador";
+        }
+        for (int i = 0; i < comp.size(); i++) 
+        {
+            if(comp.get(i).getUsuario().equals(nombre))
+                return "comprador";
+        }
         
+        // No se encontro
+        return "";
+    }
+    
+    
+    // AGREGAR UN ACCESORIO
+    public void agregarAccesorio(String nombre, double precio, int cantidad)
+    {
+        for (int i = 0; i < accesorio.size(); i++) 
+        {
+            if(accesorio.get(i).getNombre().equals(nombre))
+            {
+                JOptionPane.showMessageDialog(null, "No se pudo agreagr.\n ¿Escribio bien los datos?");
+                return;
+            }
+        }
+        
+        accesorio.add(new Accesorio(nombre, precio, cantidad));
+        
+    }
+    
+    
+    // EDITAR UN ACCESORIO
+    public void editarAccesorio(String nombre, double precio, int cantidad)
+    {
+        for (int i = 0; i < accesorio.size(); i++) 
+        {
+            if(accesorio.get(i).getNombre().equals(nombre))
+            {
+                accesorio.get(i).setNombre(nombre);
+                accesorio.get(i).setPrecio(precio);
+                accesorio.get(i).setCantidad(cantidad);
+                return;
+            }
+        }
+        
+        // no se pudo agregar
+        JOptionPane.showMessageDialog(null, "No se pudo agreagr.\n ¿Escribio bien los datos?");
+    }
+    
+    
+    // ELIMINAR UN ACCESORIO
+    public void eliminarAccesorio(String id)
+    {
+        for (int i = 0; i < accesorio.size(); i++) 
+        {
+            if(accesorio.get(i).getId().equals(id))
+            {
+                accesorio.remove(i);
+                return;
+            }
+        }
+        
+        // no se pudo agregar
+        JOptionPane.showMessageDialog(null, "No se pudo eliminar");
+    }
+    
+    
+    // FUNCION PARA LOGIN (LOGEARSE)
+    public boolean entrarLogin(String username, String password)
+    {
+        // Busca coincidencia en ambos cosos
+        for (int i = 0; i < user.size(); i++) 
+        {
+            if(user.get(i).getUsuario().equals(username) && user.get(i).getPassword().equals(password))
+                return true;
+        }
+        for (int i = 0; i < comp.size(); i++) 
+        {
+            if(comp.get(i).getUsuario().equals(username) && comp.get(i).getPassword().equals(password))
+                return true;
+        }
+        
+        // si no encuentra retorna falso
+        return false;
     }
     
     
