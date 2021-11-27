@@ -89,7 +89,7 @@ public class BaseDeDatos
     
     
     // EDITAR UN ACCESORIO
-    public void editarAccesorio(String nombre, double precio, int cantidad)
+    public void editarAccesorio(String nombre, String nuevonombre, double precio, int cantidad)
     {
         for (int i = 0; i < accesorio.size(); i++) 
         {
@@ -144,7 +144,6 @@ public class BaseDeDatos
     }
     
     
-<<<<<<< HEAD
     // RELLENA EL COMBOBOX DE MODIFICAR EN jfadmin
     // OJO: Retorna un array de string
     public ArrayList<String> rellenarID()
@@ -156,15 +155,5 @@ public class BaseDeDatos
         }
         return id;
     }
-=======
     
-    
-    
-    
-    
-    
-    
-    
-    
->>>>>>> 614c7921c219cd7532414cf266cc6f63a724f72c
 }
