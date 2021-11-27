@@ -50,7 +50,10 @@ public class BaseDeDatos
             comp.add(new Comprador(usuario, password, edad));
     }
     
-    
+    public int accSize()
+    {
+        return accesorio.size();
+    }
     // Indica que tipo de usuario es (administrador o  comprador)
     public String getTipoUsuario(String nombre)
     {
@@ -155,5 +158,18 @@ public class BaseDeDatos
         }
         return id;
     }
+    
+    // OBTENER CADA ELEMENTO DE X ACCESORIO POR SU ID
+    public Accesorio buscarAccesorioporID(String ID)
+    {
+        for (int i = 0; i < accesorio.size(); i++) 
+        {
+            if(accesorio.get(i).getId().equals(ID))
+                return accesorio.get(i);
+        }
+        return null;
+    }
+    
+    // obtiene todo el
     
 }
