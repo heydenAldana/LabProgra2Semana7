@@ -54,6 +54,12 @@ public class BaseDeDatos
     {
         return accesorio.size();
     }
+    
+    // retorna el arraylist
+    public ArrayList<Accesorio> getAccesorios()
+    {
+        return accesorio;
+    }
     // Indica que tipo de usuario es (administrador o  comprador)
     public String getTipoUsuario(String nombre)
     {

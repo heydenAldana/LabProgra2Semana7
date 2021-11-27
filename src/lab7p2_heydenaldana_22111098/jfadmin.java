@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 public class jfadmin extends javax.swing.JFrame {
 
     BaseDeDatos bdd = new BaseDeDatos();
-    String matrix[][] = new String[bdd.accSize()][3];
+    String matrix[][] = new String[bdd.accSize()][4];
     
     /**
      * Creates new form jfadmin
@@ -350,13 +350,13 @@ public class jfadmin extends javax.swing.JFrame {
         jtstock.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jtstock.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Nombre", "Precio", "Cantidad"
+                "ID", "Nombre", "Precio", "Cantidad"
             }
         ));
         jtstock.setMinimumSize(new java.awt.Dimension(60, 34));
@@ -467,8 +467,25 @@ public class jfadmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         try
         {
+            String cantidad, precio; 
             bdd.agregarAccesorio(tacc.getText(), Double.parseDouble(tprecio.getText()), Integer.parseInt(tcantidad.getText()));
-
+            
+            // Actualiza la tabla
+            for (int i = 0; i < bdd.getAccesorios().size(); i++) 
+            {
+                matrix[i][0] = bdd.getAccesorios().get(i).getId();
+                matrix[i][1] = bdd.getAccesorios().get(i).getNombre();
+                precio = String.valueOf(bdd.getAccesorios().get(i).getCantidad());
+                matrix[i][2] = precio;
+                cantidad = String.valueOf(bdd.getAccesorios().get(i).getCantidad());
+                matrix[i][3] = cantidad;
+            }
+            
+            jtstock.setModel(new javax.swing.table.DefaultTableModel(matrix, 
+                new String[] {
+                    "ID", "Nombre", "Precio", "Cantidad"
+                }));
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error de programa.\n\nNo puede ser creado");
         }
@@ -480,6 +497,21 @@ public class jfadmin extends javax.swing.JFrame {
         {
             bdd.editarAccesorio(tacc2.getText(), taccm.getText(), Double.parseDouble(tprecio2.getText()), Integer.parseInt(tcantidad2.getText()));
 
+            String cantidad, precio;
+             for (int i = 0; i < bdd.getAccesorios().size(); i++) 
+            {
+                matrix[i][0] = bdd.getAccesorios().get(i).getId();
+                matrix[i][1] = bdd.getAccesorios().get(i).getNombre();
+                precio = String.valueOf(bdd.getAccesorios().get(i).getCantidad());
+                matrix[i][2] = precio;
+                cantidad = String.valueOf(bdd.getAccesorios().get(i).getCantidad());
+                matrix[i][3] = cantidad;
+            }
+            
+            jtstock.setModel(new javax.swing.table.DefaultTableModel(matrix, 
+                new String[] {
+                    "ID", "Nombre", "Precio", "Cantidad"
+                }));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error de programa");
         }
@@ -508,6 +540,22 @@ public class jfadmin extends javax.swing.JFrame {
         {
             String id = cbid2.getSelectedItem().toString();
             bdd.eliminarAccesorio(id);
+            
+            String cantidad, precio;
+             for (int i = 0; i < bdd.getAccesorios().size(); i++) 
+            {
+                matrix[i][0] = bdd.getAccesorios().get(i).getId();
+                matrix[i][1] = bdd.getAccesorios().get(i).getNombre();
+                precio = String.valueOf(bdd.getAccesorios().get(i).getCantidad());
+                matrix[i][2] = precio;
+                cantidad = String.valueOf(bdd.getAccesorios().get(i).getCantidad());
+                matrix[i][3] = cantidad;
+            }
+            
+            jtstock.setModel(new javax.swing.table.DefaultTableModel(matrix, 
+                new String[] {
+                    "ID", "Nombre", "Precio", "Cantidad"
+                }));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error...");
         }
