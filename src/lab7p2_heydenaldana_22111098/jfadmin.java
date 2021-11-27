@@ -66,6 +66,7 @@ public class jfadmin extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtstock = new javax.swing.JTable();
         bentrar = new javax.swing.JButton();
+        bsalir = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -75,7 +76,7 @@ public class jfadmin extends javax.swing.JFrame {
 
         juser.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         juser.setForeground(new java.awt.Color(51, 51, 51));
-        juser.setText("BIENVENIDO, ");
+        juser.setText("BIENVENIDO ");
 
         jTabbedPane1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
@@ -391,15 +392,28 @@ public class jfadmin extends javax.swing.JFrame {
             }
         });
 
+        bsalir.setBackground(new java.awt.Color(255, 204, 204));
+        bsalir.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        bsalir.setForeground(new java.awt.Color(51, 51, 51));
+        bsalir.setText("S A L I R");
+        bsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bsalirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(juser))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(juser)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(49, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -411,8 +425,13 @@ public class jfadmin extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(juser)
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(juser)
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(bsalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(22, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -565,6 +584,13 @@ public class jfadmin extends javax.swing.JFrame {
        
     }//GEN-LAST:event_bentrarActionPerformed
 
+    private void bsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bsalirActionPerformed
+        // TODO add your handling code here:
+        jflogin r = new jflogin();
+        r.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_bsalirActionPerformed
+
     private void rellenar()
     {
         try
@@ -615,6 +641,7 @@ public class jfadmin extends javax.swing.JFrame {
     private javax.swing.JButton beliminar;
     private javax.swing.JButton bentrar;
     private javax.swing.JButton bmodificar;
+    private javax.swing.JButton bsalir;
     private javax.swing.JComboBox<String> cbid;
     private javax.swing.JComboBox<String> cbid2;
     private javax.swing.JLabel jLabel10;
