@@ -14,12 +14,15 @@ import javax.swing.JOptionPane;
 public class jflogin extends javax.swing.JFrame {
 
     BaseDeDatos bdd = new BaseDeDatos();
+    
     public String username;
     /**
      * Creates new form jflogin
      */
     public jflogin() {
         initComponents();
+        bdd.agregarUsuario("administrador", "admin", "123", 18);
+        bdd.agregarUsuario("comprador", "cr7", "456", 34);
     }
 
     /**
