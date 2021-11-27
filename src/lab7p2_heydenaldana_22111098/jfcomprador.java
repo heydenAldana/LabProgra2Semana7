@@ -5,11 +5,17 @@
  */
 package lab7p2_heydenaldana_22111098;
 
+import java.util.HashSet;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author jcgol
  */
 public class jfcomprador extends javax.swing.JFrame {
+
+    DefaultTableModel model = new DefaultTableModel();
+    Comprador comp;
 
     /**
      * Creates new form jfcomprador
@@ -54,7 +60,6 @@ public class jfcomprador extends javax.swing.JFrame {
 
         jLnombre.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLnombre.setForeground(new java.awt.Color(51, 51, 51));
-        jLnombre.setText("jLabel2");
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -216,6 +221,11 @@ public class jfcomprador extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Cerrar Sesion");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -271,6 +281,20 @@ public class jfcomprador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jLnombre(java.awt.event.ActionEvent evt) {
+        jLnombre.setText(comp.getUsuario());
+    }
+
+    private void jLdinero(java.awt.event.ActionEvent evt) {
+        jLdinero.setText(":" + comp.getDinero());
+        ;
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -305,6 +329,9 @@ public class jfcomprador extends javax.swing.JFrame {
             }
         });
     }
+
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
